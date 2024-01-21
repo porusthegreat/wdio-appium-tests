@@ -1,5 +1,6 @@
 import { driver } from '@wdio/globals';
 import AppScreen from './AppScreen.js';
+import { newspaper } from './NewspaperScreen.js';
 
 const SELECTORS = {
     EMAIL_FIELD: '//android.widget.EditText[@resource-id="login.email"]',
@@ -23,7 +24,6 @@ class LoginScreen extends AppScreen {
         await this.fillTextField(SELECTORS.EMAIL_FIELD, 'mailqatest94@gmail.com');
         await this.fillTextField(SELECTORS.PASSWORD, 'World123!');
         await this.SignAndHideKeyboard();
-        // await this.clickOnSignIn();
     }
 
     async dismissFirstTimeFreChrome() {

@@ -4,7 +4,8 @@ import Gestures, { DIRECTIONS } from '../helpers/Gestures.js';
 const SELECTORS = {
     RECENT_ISSUES: 'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("Recent issues"))',
     HORIZONTAL_SCROLL_VIEW: '(//android.view.ViewGroup[@class="android.view.ViewGroup"])[36]',
-    SEE_MORE: 'new UiSelector().text("SEE MORE")'
+    SEE_MORE: 'new UiSelector().text("SEE MORE")',
+    ARCHIVE_ICON: '(//android.view.ViewGroup[@class="android.view.ViewGroup"])[17]'
 
 };
 
@@ -12,9 +13,15 @@ class HomeScreen extends AppScreen {
     get seeMoreCard() {
         return $(`android=${SELECTORS.SEE_MORE}`);
     }
+
     async navigateToRecentIssues() {
         const element = await $(`android=${SELECTORS.RECENT_ISSUES}`);
         return element.waitForDisplayed();
+    }
+
+    async clickOnArchiveIcon() {
+        await this.waitForIsShown(SELECTORS.ARCHIVE_ICON);
+        await $(SELECTORS.ARCHIVE_ICON).click();
     }
 
     async swipeLeftToSeeMore() {

@@ -1,5 +1,6 @@
 import { driver } from '@wdio/globals';
 import { Key } from 'webdriverio';
+import { newspaper } from './NewspaperScreen.js';
 
 export default class AppScreen {
     async waitForIsShown(selector: string, isShown = true): Promise<boolean | void> {

@@ -3,7 +3,7 @@ import Gestures, { DIRECTIONS } from '../helpers/Gestures.js';
 
 const SELECTORS = {
     ARCHIVE_TAB: 'new UiSelector().text("Archive")',
-    VERTICAL_SCROLL_VIEW: '(//android.view.ViewGroup[@class="android.view.ViewGroup"])[28]',
+    VERTICAL_SCROLL_VIEW: '//android.widget.ScrollView[@class="android.widget.ScrollView"]',
     NEWSPAPER_NAME: 'new UiSelector().text("6 January 2024")'
 };
 

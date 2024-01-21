@@ -9,6 +9,7 @@ class WelcomeScreenSteps {
     }
 
     async navigateToHomeScreen() {
+
         for (let i = 0; i < 5; i++) {
             await welcomeScreen.tapOnContinue();
         }
@@ -17,10 +18,10 @@ class WelcomeScreenSteps {
 
 const welcomeScreenSteps = new WelcomeScreenSteps();
 
-Given(/^the user is on the Welcome Screen$/,  { timeout: 1000000 }, async () => {
-    await welcomeScreenSteps.verifyUserIsOnHomeScreen().then(result => expect(result).toBe(true));
+Given(/^the user is on the Welcome Screen$/, { timeout: 1000000 }, async () => {
+    await welcomeScreenSteps.verifyUserIsOnHomeScreen().then(result => expect(result).toBeTruthy());
 });
 
-When(/^the user navigates to Home Screen$/,  { timeout: 1000000 }, async () => {
+When(/^the user navigates to Home Screen$/, { timeout: 1000000 }, async () => {
     await welcomeScreenSteps.navigateToHomeScreen();
 });

@@ -29,7 +29,7 @@ export const config: WebdriverIO.Config = {
             // 'appium:deviceName': 'Pixel_3a_API_34_extension_level_7_arm64-v8a',
             //
             // NOTE: Change this version according to the Emulator you have created on your local machine
-            'appium:platformVersion': '11.0',
+            'appium:platformVersion': '14.0',
             'appium:orientation': 'PORTRAIT',
             'appium:automationName': 'UiAutomator2',
             // 'appium:fullReset': 'true',
@@ -42,7 +42,8 @@ export const config: WebdriverIO.Config = {
                 // NOTE: Change this name according to the app version you downloaded
                 './dailymail-android.apk',
             ),
-            // 'appium:appWaitActivity': 'com.anmedia.dailymail.kindlefire.uat.MainActivity',
+            'appium:appPackage': 'com.anmedia.dailymail.kindlefire.uat',
+            'appium:appWaitActivity': 'com.twipeappv4.MainActivity',
             'appium:newCommandTimeout': 240,
             // 'appium:dontStopAppOnReset': true,
         },

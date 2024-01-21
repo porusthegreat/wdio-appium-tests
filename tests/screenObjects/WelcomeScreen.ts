@@ -18,7 +18,7 @@ class WelcomeScreen extends AppScreen {
     }
 
     async isContinueButtonVisible() {
-        return $(SELECTORS.CONTINUE_BUTTON).isDisplayed();
+        return this.waitForIsShown(SELECTORS.CONTINUE_BUTTON);
     }
 
     async tapOnContinue() {
