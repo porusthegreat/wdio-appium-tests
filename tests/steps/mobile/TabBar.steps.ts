@@ -1,5 +1,5 @@
 import { When } from '@wdio/cucumber-framework';
-import { tabBar } from '../screenObjects/components/TabBar.js';
+import { tabBar } from '../../screenObjects/components/TabBar.js';
 
 class TabBarSteps {
     get openNewPaper() {

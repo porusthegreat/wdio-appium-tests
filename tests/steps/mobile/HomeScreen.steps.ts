@@ -1,9 +1,9 @@
 import { When, Then } from '@wdio/cucumber-framework';
-import { homeScreen } from '../screenObjects/HomeScreen.js';
-import { allIssuesScreen } from '../screenObjects/AllIssuesScreen.js';
-import { signInScreen } from '../screenObjects/SignInPromtScreen.js';
-import { loginScreen } from '../screenObjects/LoginScreen.js';
-import { newspaper } from '../screenObjects/NewspaperScreen.js';
+import { homeScreen } from '../../screenObjects/HomeScreen.js';
+import { allIssuesScreen } from '../../screenObjects/AllIssuesScreen.js';
+import { signInScreen } from '../../screenObjects/SignInPromtScreen.js';
+import { loginScreen } from '../../screenObjects/LoginScreen.js';
+import { newspaper } from '../../screenObjects/NewspaperScreen.js';
 import * as klaw from 'klaw';
 import { driver } from '@wdio/globals';
 

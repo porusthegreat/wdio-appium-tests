@@ -1,5 +1,5 @@
 import { Given, When } from '@wdio/cucumber-framework';
-import { welcomeScreen } from '../screenObjects/WelcomeScreen.js';
+import { welcomeScreen } from '../../screenObjects/WelcomeScreen.js';
 
 //
 class WelcomeScreenSteps {

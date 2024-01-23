@@ -1,4 +1,5 @@
 import type { Options } from '@wdio/types';
+import allure from 'allure-commandline';
 
 /**
  * All not needed configurations, for this boilerplate, are removed.
@@ -23,7 +24,7 @@ export const config: Options.Testrunner = {
     /**
      * NOTE: This is just a placeholder and will be overwritten by each specific configuration
      */
-    specs: ['./../tests/features/*.feature'],
+    specs: [],
     //
     // ============
     // Capabilities
@@ -68,7 +69,7 @@ export const config: Options.Testrunner = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://the-internet.herokuapp.com',
+    baseUrl: 'https://www.dailymail.co.uk/',
     // Default timeout for all waitFor* commands.
     /**
      * NOTE: This has been increased for more stable Appium Native app
@@ -110,7 +111,11 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
     // If you are using Cucumber you need to specify where your step definitions are located.
     // See also: https://github.com/webdriverio/webdriverio/tree/main/packages/wdio-cucumber-framework#cucumberopts-options
     cucumberOpts: {
@@ -163,7 +168,24 @@ export const config: Options.Testrunner = {
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
     // resolved to continue.
     //
-    /**
-     * NOTE: No Hooks are used in this project, but feel free to add them if you need them.
-     */
+    onComplete: function() {
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                5000)
+
+            generation.on('exit', function(exitCode) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
+    }
 };

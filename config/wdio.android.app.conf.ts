@@ -7,9 +7,10 @@ export const config: WebdriverIO.Config = {
 
     // ============
     // Specs
+    specs: ['./../tests/features/mobile/*.feature'],
     // ============
     cucumberOpts: {
-        require: ['./tests/steps/*.steps.ts'],
+        require: ['./tests/steps/mobile/*.steps.ts'],
     },
     // ============
     // Capabilities
