@@ -20,7 +20,7 @@ export default class WebPage {
             return (await $(selector).waitForClickable());
         }, {
             timeout: 5000,
-            timeoutMsg: 'BIG PLAY VIDEO BUTTON IS NOT CLICKABLE AFTER 5s'
+            timeoutMsg: 'Page Load Timeout 5s'
         });
     }
 }

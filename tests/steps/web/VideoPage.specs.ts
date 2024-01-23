@@ -9,7 +9,7 @@ class VideoPageSpecs {
 
     public async userAcceptsCookies() {
         await videoPage.acceptCookies();
-        await videoPage.waitForInitialPageLoad();
+        await videoPage.waitForVideoPageLoad();
     }
 }
 

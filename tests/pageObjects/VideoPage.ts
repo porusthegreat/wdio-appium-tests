@@ -65,7 +65,7 @@ class VideoPage extends WebPage {
         return currentTitle != previousVideoTitle;
     }
 
-    async waitForInitialPageLoad() {
+    async waitForVideoPageLoad() {
         await this.waitUntilPageLoads(SELECTORS.BIG_PLAY_BUTTON);
     }
 

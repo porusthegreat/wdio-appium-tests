@@ -11,3 +11,8 @@
 ## View Allure Report (at the end of test)
 * allure open
 
+**Team Position and Team Points are Printed in the console**
+* Team Position   : 
+* Team Points     : 
+
+
